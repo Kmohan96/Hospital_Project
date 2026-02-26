@@ -215,6 +215,7 @@ CORS_ALLOW_ALL_ORIGINS = os.getenv('CORS_ALLOW_ALL_ORIGINS', 'False').lower() ==
 # Backward compatibility for django-cors-headers 3.1.1
 CORS_ORIGIN_WHITELIST = CORS_ALLOWED_ORIGINS
 CORS_ORIGIN_REGEX_WHITELIST = CORS_ALLOWED_ORIGIN_REGEXES
+CORS_ORIGIN_ALLOW_ALL = CORS_ALLOW_ALL_ORIGINS
 REST_FRAMEWORK = {
     # 'DEFAULT_PERMISSION_CLASSES': [
     #     # 'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
