@@ -7,6 +7,8 @@ services:
     startCommand: gunicorn ReactDjango.wsgi:application
     autoDeploy: true
     envVars:
+      - key: PYTHON_VERSION
+        value: 3.9.19
       - key: DJANGO_DEBUG
         value: "False"
       - key: DB_ENGINE
