@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: hospital-backend
+    env: python
+    rootDir: Backend
+    buildCommand: pip install -r requirements.txt && python manage.py collectstatic --noinput && python manage.py migrate
+    startCommand: gunicorn ReactDjango.wsgi:application
+    autoDeploy: true
+    envVars:
+      - key: DJANGO_DEBUG
+        value: "False"
+      - key: DB_ENGINE
+        value: django.db.backends.mysql
+      - key: DB_SSLMODE
+        value: REQUIRED
+
+  - type: web
+    name: hospital-frontend
+    env: static
+    rootDir: frontend
+    buildCommand: npm ci && npm run build
+    staticPublishPath: dist
+    autoDeploy: true

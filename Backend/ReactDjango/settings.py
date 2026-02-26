@@ -1,7 +1,9 @@
 import os
+from dotenv import load_dotenv
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+load_dotenv(os.path.join(BASE_DIR, '.env'))
 
 
 # Quick-start development settings - unsuitable for production
@@ -93,14 +95,25 @@ DB_SSLKEY = os.getenv('DB_SSLKEY', '')
 DB_SSLROOTCERT = os.getenv('DB_SSLROOTCERT', '')
 
 database_options = {}
-if DB_SSLMODE:
-    database_options['sslmode'] = DB_SSLMODE
-if DB_SSLCERT:
-    database_options['sslcert'] = DB_SSLCERT
-if DB_SSLKEY:
-    database_options['sslkey'] = DB_SSLKEY
-if DB_SSLROOTCERT:
-    database_options['sslrootcert'] = DB_SSLROOTCERT
+if 'postgresql' in DB_ENGINE:
+    if DB_SSLMODE:
+        database_options['sslmode'] = DB_SSLMODE
+    if DB_SSLCERT:
+        database_options['sslcert'] = DB_SSLCERT
+    if DB_SSLKEY:
+        database_options['sslkey'] = DB_SSLKEY
+    if DB_SSLROOTCERT:
+        database_options['sslrootcert'] = DB_SSLROOTCERT
+elif 'mysql' in DB_ENGINE and DB_SSLMODE:
+    # Aiven MySQL requires SSL; pass mysqlclient-compatible SSL options.
+    ssl_options = {}
+    if DB_SSLROOTCERT:
+        ssl_options['ca'] = DB_SSLROOTCERT
+    if DB_SSLCERT:
+        ssl_options['cert'] = DB_SSLCERT
+    if DB_SSLKEY:
+        ssl_options['key'] = DB_SSLKEY
+    database_options['ssl'] = ssl_options
 
 DATABASES = {
     'default': {
