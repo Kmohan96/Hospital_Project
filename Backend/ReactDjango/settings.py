@@ -18,7 +18,13 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'r(6$p=#n=b8^-2u#pq)+=1(xpbb%69k_$)f
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DJANGO_DEBUG', 'True').lower() == 'true'
 
-ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
+
+def _csv_env(name, default=''):
+    raw = os.getenv(name, default)
+    return [item.strip() for item in raw.split(',') if item.strip()]
+
+
+ALLOWED_HOSTS = _csv_env('DJANGO_ALLOWED_HOSTS', 'localhost,127.0.0.1')
 
 
 # Application definition
@@ -203,7 +209,12 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # Backward compatibility for older django-cors-headers versions.
 # CORS_ORIGIN_WHITELIST = CORS_ALLOWED_ORIGINS
 
-CORS_ALLOWED_ORIGINS = os.getenv('CORS_ALLOWED_ORIGINS', 'http://localhost:5173').split(',')
+CORS_ALLOWED_ORIGINS = _csv_env('CORS_ALLOWED_ORIGINS', 'http://localhost:5173')
+CORS_ALLOWED_ORIGIN_REGEXES = _csv_env('CORS_ALLOWED_ORIGIN_REGEXES', '')
+CORS_ALLOW_ALL_ORIGINS = os.getenv('CORS_ALLOW_ALL_ORIGINS', 'False').lower() == 'true'
+# Backward compatibility for django-cors-headers 3.1.1
+CORS_ORIGIN_WHITELIST = CORS_ALLOWED_ORIGINS
+CORS_ORIGIN_REGEX_WHITELIST = CORS_ALLOWED_ORIGIN_REGEXES
 REST_FRAMEWORK = {
     # 'DEFAULT_PERMISSION_CLASSES': [
     #     # 'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
