@@ -47,6 +47,9 @@ def _normalize_origin(value):
 
 
 ALLOWED_HOSTS = [host for host in (_normalize_host(v) for v in _csv_env('DJANGO_ALLOWED_HOSTS', 'localhost,127.0.0.1')) if host]
+render_hostname = _normalize_host(os.getenv('RENDER_EXTERNAL_HOSTNAME', ''))
+if render_hostname and render_hostname not in ALLOWED_HOSTS:
+    ALLOWED_HOSTS.append(render_hostname)
 
 
 # Application definition
