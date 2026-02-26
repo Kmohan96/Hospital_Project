@@ -1,0 +1,27 @@
+/* ================= GLOBAL HOMEPAGE ================= */
+
+.homepage {
+  scroll-behavior: smooth;
+}
+
+/* Add consistent spacing between sections */
+.homepage > * {
+  position: relative;
+}
+
+/* Optional: smooth fade-in animation for sections */
+.homepage > * {
+  animation: sectionFade 0.8s ease both;
+}
+
+/* Section fade animation */
+@keyframes sectionFade {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

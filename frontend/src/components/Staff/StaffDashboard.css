@@ -1,0 +1,40 @@
+.staff-dashboard {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.08);
+  padding: 28px;
+}
+
+.staff-dashboard h2 {
+  margin: 0;
+  color: #0f172a;
+}
+
+.staff-dashboard p {
+  color: #475569;
+}
+
+.staff-dashboard-grid {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 14px;
+}
+
+.staff-dashboard-card {
+  border: 1px solid #dbe5ea;
+  border-radius: 12px;
+  padding: 16px;
+  background: #f8fafc;
+}
+
+.staff-action-link {
+  display: inline-block;
+  margin-top: 10px;
+  text-decoration: none;
+  background: #0f766e;
+  color: #ffffff;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-weight: 700;
+}

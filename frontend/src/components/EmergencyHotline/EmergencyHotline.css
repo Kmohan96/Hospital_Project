@@ -1,0 +1,63 @@
+/* ================= HOTLINE AREA ================= */
+
+.hotline-area {
+  position: relative;
+  background: url("../../assets/bg.png") center/cover no-repeat;
+  padding: 80px 20px;
+  text-align: center;
+  color: white;
+  overflow: hidden;
+}
+
+/* Overlay for readability */
+.hotline-area::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.7),
+    rgba(0, 0, 0, 0.6)
+  );
+  z-index: 1;
+}
+
+/* Content above overlay */
+.hotline-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: auto;
+}
+
+/* Hotline Number */
+.hotline-number {
+  font-size: 36px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+  color: #1abc9c;
+}
+
+/* Subtitle */
+.hotline-area p {
+  font-size: 18px;
+  margin-bottom: 30px;
+  opacity: 0.9;
+}
+
+/* Call Button */
+.hotline-btn {
+  display: inline-block;
+  padding: 14px 32px;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #1abc9c, #16a085);
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.hotline-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(22, 160, 133, 0.4);
+}

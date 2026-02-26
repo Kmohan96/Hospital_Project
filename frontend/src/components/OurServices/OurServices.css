@@ -1,0 +1,106 @@
+/* ================= SECTION ================= */
+
+.services-section {
+  background: linear-gradient(135deg, #f4f9f9, #eaf4f3);
+  padding: 100px 20px;
+}
+
+/* ================= CONTAINER ================= */
+
+.services-container {
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+}
+
+/* ================= TITLE ================= */
+
+.services-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 15px;
+}
+
+.services-subtitle {
+  max-width: 650px;
+  margin: 0 auto 60px;
+  font-size: 15px;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* ================= GRID ================= */
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+/* ================= CARD ================= */
+
+.service-card {
+  background: #ffffff;
+  padding: 35px 30px;
+  border-radius: 18px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.06);
+  transition: 0.3s ease;
+  text-align: left;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 25px 55px rgba(0, 0, 0, 0.1);
+}
+
+/* ================= CARD CONTENT ================= */
+
+.service-card h4 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+.service-card p {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+/* ================= BUTTON ================= */
+
+.service-btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  background: linear-gradient(135deg, #1abc9c, #16a085);
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.service-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(22, 160, 133, 0.4);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+  .services-title {
+    font-size: 26px;
+  }
+
+  .services-subtitle {
+    font-size: 14px;
+  }
+
+  .service-card {
+    text-align: center;
+  }
+}

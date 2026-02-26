@@ -1,0 +1,110 @@
+/* ================= SECTION ================= */
+
+.testimonial-section {
+  background: linear-gradient(135deg, #f4f9f9, #eaf4f3);
+  padding: 100px 20px;
+}
+
+/* ================= CONTAINER ================= */
+
+.testimonial-container {
+  max-width: 800px;
+  margin: auto;
+  text-align: center;
+}
+
+/* ================= TITLE ================= */
+
+.testimonial-container h2 {
+  font-size: 30px;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 50px;
+}
+
+/* ================= CARD ================= */
+
+.testimonial-card {
+  background: white;
+  padding: 40px 35px;
+  border-radius: 20px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08);
+  transition: 0.4s ease;
+  animation: fadeIn 0.5s ease;
+}
+
+/* ================= IMAGE ================= */
+
+.testimonial-card img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #1abc9c;
+  margin-bottom: 20px;
+}
+
+/* ================= NAME ================= */
+
+.testimonial-card h4 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 15px;
+}
+
+/* ================= TEXT ================= */
+
+.testimonial-card p {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.7;
+  font-style: italic;
+}
+
+/* ================= DOTS ================= */
+
+.testimonial-dots {
+  margin-top: 30px;
+}
+
+.dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background: #ccc;
+  border-radius: 50%;
+  margin: 0 6px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.dot.active {
+  background: #1abc9c;
+  transform: scale(1.2);
+}
+
+/* ================= ANIMATION ================= */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+  .testimonial-card {
+    padding: 30px 20px;
+  }
+
+  .testimonial-container h2 {
+    font-size: 24px;
+  }
+}

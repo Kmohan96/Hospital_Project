@@ -1,0 +1,63 @@
+/* Dashboard analytics shell */
+.analytics-section {
+  padding: 24px;
+  background: radial-gradient(circle at top left, #ecfffb 0%, #f7fafc 45%, #f3f4f6 100%);
+  border-radius: 20px;
+}
+
+.analytics-panel {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.analytics-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.analytics-tab {
+  border: 1px solid #dbe5ea;
+  border-radius: 12px;
+  background: #ffffff;
+  color: #1f2937;
+  padding: 10px 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.analytics-tab:hover {
+  border-color: #0f766e;
+  color: #0f766e;
+}
+
+.analytics-tab.active {
+  background: linear-gradient(135deg, #0f766e, #14b8a6);
+  color: #ffffff;
+  border-color: transparent;
+  box-shadow: 0 10px 24px rgba(15, 118, 110, 0.24);
+}
+
+.analytics-content {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+  padding: 8px;
+}
+
+@media (max-width: 768px) {
+  .analytics-section {
+    padding: 14px;
+  }
+
+  .analytics-tabs {
+    gap: 8px;
+  }
+
+  .analytics-tab {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+}
