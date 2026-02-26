@@ -1,4 +1,5 @@
 import os
+from urllib.parse import urlparse
 from dotenv import load_dotenv
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -23,8 +24,29 @@ def _csv_env(name, default=''):
     raw = os.getenv(name, default)
     return [item.strip() for item in raw.split(',') if item.strip()]
 
+def _normalize_host(value):
+    host = str(value).strip().strip('"').strip("'")
+    if not host:
+        return ''
+    if '://' in host:
+        host = urlparse(host).netloc
+    host = host.split('/')[0]
+    return host.strip()
 
-ALLOWED_HOSTS = _csv_env('DJANGO_ALLOWED_HOSTS', 'localhost,127.0.0.1')
+
+def _normalize_origin(value):
+    origin = str(value).strip().strip('"').strip("'")
+    if not origin:
+        return ''
+    if '://' not in origin:
+        return ''
+    parsed = urlparse(origin)
+    if not parsed.scheme or not parsed.netloc:
+        return ''
+    return f"{parsed.scheme}://{parsed.netloc}"
+
+
+ALLOWED_HOSTS = [host for host in (_normalize_host(v) for v in _csv_env('DJANGO_ALLOWED_HOSTS', 'localhost,127.0.0.1')) if host]
 
 
 # Application definition
@@ -209,8 +231,8 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # Backward compatibility for older django-cors-headers versions.
 # CORS_ORIGIN_WHITELIST = CORS_ALLOWED_ORIGINS
 
-CORS_ALLOWED_ORIGINS = _csv_env('CORS_ALLOWED_ORIGINS', 'http://localhost:5173')
-CORS_ALLOWED_ORIGIN_REGEXES = _csv_env('CORS_ALLOWED_ORIGIN_REGEXES', '')
+CORS_ALLOWED_ORIGINS = [origin for origin in (_normalize_origin(v) for v in _csv_env('CORS_ALLOWED_ORIGINS', 'http://localhost:5173')) if origin]
+CORS_ALLOWED_ORIGIN_REGEXES = _csv_env('CORS_ALLOWED_ORIGIN_REGEXES', '^https://.*\\.vercel\\.app$')
 CORS_ALLOW_ALL_ORIGINS = os.getenv('CORS_ALLOW_ALL_ORIGINS', 'False').lower() == 'true'
 # Backward compatibility for django-cors-headers 3.1.1
 CORS_ORIGIN_WHITELIST = CORS_ALLOWED_ORIGINS
