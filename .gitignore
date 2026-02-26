@@ -1,30 +1,132 @@
-# Python
+# Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
-*.pyo
-*.pyd
-*.sqlite3
-.env
-.venv/
-venv/
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py.cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Translations
+*.mo
+*.pot
 
 # Django
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
 staticfiles/
 media/
 
+# Flask
+instance/
+.webassets-cache
+
+# Scrapy
+.scrapy
+
+# Sphinx
+docs/_build/
+
+# PyBuilder
+.pybuilder/
+target/
+
+# Jupyter
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# Environments
+.env
+.envrc
+.venv/
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Tools and IDE
+.vscode/
+.idea/
+.cursorignore
+.cursorindexingignore
+.codex/
+
+# Type checkers / linters
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pyre/
+.pytype/
+.ruff_cache/
+
+# Cython
+cython_debug/
+
 # Node
 node_modules/
-dist/
-build/
 
-# Logs and OS
-*.log
+# OS
 .DS_Store
 Thumbs.db
 
-# IDE
-.vscode/
-.idea/
-
-# Local tooling
-.codex/
+# Misc
+.pypirc
+marimo/_static/
+marimo/_lsp/
+__marimo__/
+.abstra/
+.pdm-python
+.pdm-build/
+.pixi/
+__pypackages__/
+celerybeat-schedule
+celerybeat.pid
+*.sage.py
