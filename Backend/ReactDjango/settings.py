@@ -94,6 +94,16 @@ DB_SSLCERT = os.getenv('DB_SSLCERT', '')
 DB_SSLKEY = os.getenv('DB_SSLKEY', '')
 DB_SSLROOTCERT = os.getenv('DB_SSLROOTCERT', '')
 
+
+def _existing_file(path_value):
+    clean_path = str(path_value).strip().strip('"').strip("'")
+    return clean_path if clean_path and os.path.isfile(clean_path) else ''
+
+
+DB_SSLCERT = _existing_file(DB_SSLCERT)
+DB_SSLKEY = _existing_file(DB_SSLKEY)
+DB_SSLROOTCERT = _existing_file(DB_SSLROOTCERT)
+
 database_options = {}
 if 'postgresql' in DB_ENGINE:
     if DB_SSLMODE:
